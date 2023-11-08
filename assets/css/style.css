@@ -1,0 +1,95 @@
+@import url("./theme.css");
+@font-face {
+  font-family: "League Spartan Medium", sans-serif;
+  src: url("../fonts/static/LeagueSpartan-Medium.ttf");
+}
+@font-face {
+  font-family: "League Spartan SemiBold", sans-serif;
+  src: url("../fonts/static/LeagueSpartan-SemiBold.ttf");
+}
+@font-face {
+  font-family: "League Spartan Bold", sans-serif;
+  src: url("../fonts/static/LeagueSpartan-Bold.ttf");
+}
+html {
+  font-size: 12px;
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+.headerContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.menuIcon-btn {
+  margin-top: 30px;
+  margin-left: 15px;
+  height: 20px;
+  width: 20px;
+}
+header h1 {
+  font-family: "League Spartan SemiBold";
+  font-size: 2rem;
+  align-self: center;
+}
+.navContainer {
+  background-color: var(--White);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-close-btn {
+  border: none;
+  background-color: transparent;
+}
+.nav-close-btn {
+  height: 20px;
+  width: 20px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  padding: 0 5%;
+}
+nav li {
+  list-style-type: none;
+}
+nav li a {
+  text-decoration: none;
+  color: var(--Black);
+  font-family: "League Spartan Bold";
+  font-size: 1.5rem;
+}
+main {
+}
+
+.top {
+}
+.slidersContainer {
+}
+.sliderImgContainer {
+}
+.sliderDescriptionContainer {
+}
+.sliderControl {
+  background-color: var(--Black);
+}
+.bottom {
+}
