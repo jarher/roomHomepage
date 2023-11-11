@@ -1,15 +1,7 @@
-document.querySelector(".menuIconBtn").addEventListener("click", (e) => {
-  document.querySelector(".modalNav").classList.remove("hide");
-  document.querySelector(".modalNav").classList.add("showModal");
-  setTimeout(() => {
-    document.querySelector(".navContainer").classList.add("moveToRight");
-  }, 100);
-});
+import { listenEvent } from "./listenEvent.js";
 
-document.querySelector(".navCloseBtn").addEventListener("click", (e) => {
-  document.querySelector(".navContainer").classList.remove("moveToRight");
-  document.querySelector(".modalNav").classList.remove("showModal");
-  setTimeout(() => {
-    document.querySelector(".modalNav").classList.add("hide");
-  }, 300);
-});
+listenEvent.run();
+
+
+//solucionar la carga de imagenes de acuerdo al mediaQuery ej: mobile-image-hero-1 
+//al mediaquery < 1024 y desktop-image-hero al mediaquery > 1024

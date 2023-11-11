@@ -103,7 +103,6 @@ main {
   display: flex;
   flex-direction: column;
 }
-
 .sliderContainer {
   width: 100%;
   position: relative;
@@ -120,9 +119,22 @@ main {
   bottom: 0;
   width: 100%;
   height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.sliderContainerText {
+  position: relative;
+  height: 370px;
 }
 .sliderContent {
-  padding: 20px;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--White);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 .sliderContent h2 {
   font-size: 3rem;
@@ -131,16 +143,20 @@ main {
 }
 .sliderContent p {
   color: var(--Dark-Gray);
+  font-size: 1.3rem;
+  line-height: 1.6rem;
 }
 .redirect {
   text-decoration: none;
   display: flex;
   cursor: pointer;
+  margin-top: 30px;
 }
 .redirect span {
   letter-spacing: 1rem;
   font-size: 1.2rem;
   font-family: "League Spartan Semibold", sans-serif;
+  color: var(--Very-Dark-Gray);
 }
 .redirect img {
   width: 10%;
@@ -152,21 +168,29 @@ main {
   background-color: var(--Black);
   right: 0;
   bottom: 0;
-  width: 30%;
+  width: 25%;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  z-index: 10;
 }
 .sliderContainerText .sliderControl {
   display: none;
 }
 .arrowContainer {
-  height: 20px;
+  height: 50px;
+  width: 50px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.arrowContainer:hover {
+  background-color: var(--Very-Dark-Gray);
 }
 .arrowContainer img {
   height: 100%;
-}
-.sliderActive {
 }
 .bottom img {
   width: 100%;
@@ -263,6 +287,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
+    z-index: 10;
   }
   .redirect {
     margin-top: 0;
@@ -283,12 +308,12 @@ main {
   }
 }
 
-.hide{
+.hide {
   display: none;
 }
-.moveToRight{
-  transform: translateX(0%)!important;
+.moveToRight {
+  transform: translateX(0%) !important;
 }
-.showModal{
+.show {
   opacity: 1;
 }
