@@ -27,6 +27,9 @@ export class listenEvent {
         });
       }
       sliderContainerImg.append(Templates.sliderControl());
+      Array.from(DOMReader.getMany(".sliderImg")).forEach((element, index) => {
+        index === 0 ? (element.style.opacity = 1) : (element.style.opacity = 0);
+      });
     }
 
     document.addEventListener("click", (e) => {
@@ -46,18 +49,23 @@ export class listenEvent {
         }, 300);
       }
 
-      if (e.target.parentElement.classList.contains("arrowLeft")) {
+      if (e.target.parentElement.className === "arrowLeft") {
         index = index <= 0 ? 2 : --index;
         const slider = new Slider(index);
-        slider.sliderImg(Array.from(DOMReader.getMany(".sliderImg")), "moveLeft");
+        slider.sliderImg(
+          Array.from(DOMReader.getMany(".sliderImg")),
+          "moveLeft"
+        );
         slider.sliderText(Array.from(DOMReader.getMany(".sliderContent")));
-
       }
 
-      if (e.target.parentElement.classList.contains("arrowRight")) {
+      if (e.target.parentElement.className === "arrowRight") {
         index = index >= 2 ? 0 : ++index;
         const slider = new Slider(index);
-        slider.sliderImg(Array.from(DOMReader.getMany(".sliderImg")));
+        slider.sliderImg(
+          Array.from(DOMReader.getMany(".sliderImg")),
+          "moveRight"
+        );
         slider.sliderText(Array.from(DOMReader.getMany(".sliderContent")));
       }
     });
@@ -65,6 +73,7 @@ export class listenEvent {
     document.addEventListener("DOMContentLoaded", (e) => {
       sliderContainerImg.cleanContent();
       renderImg();
+
       data.forEach((object, index) => {
         index === 0
           ? sliderContainerText.append(

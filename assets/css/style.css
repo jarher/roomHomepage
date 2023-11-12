@@ -119,7 +119,7 @@ main {
   bottom: 0;
   width: 100%;
   height: 100%;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .sliderContainerText {
   position: relative;
@@ -176,7 +176,8 @@ main {
 .sliderContainerText .sliderControl {
   display: none;
 }
-.arrowContainer {
+.arrowLeft,
+.arrowRight{
   height: 50px;
   width: 50px;
   padding: 15px;
@@ -186,7 +187,8 @@ main {
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
-.arrowContainer:hover {
+.arrowLeft:hover,
+.arrowRight:hover {
   background-color: var(--Very-Dark-Gray);
 }
 .arrowContainer img {

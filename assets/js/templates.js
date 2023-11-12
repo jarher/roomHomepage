@@ -41,14 +41,14 @@ export class Templates {
     sliderControl.className = "sliderControl";
 
     const arrowContainerLeft = document.createElement("div");
-    arrowContainerLeft.className = "arrowContainer arrowLeft";
+    arrowContainerLeft.className = "arrowLeft";
     const imgLeft = document.createElement("img");
     imgLeft.src = "./images/icon-angle-left.svg";
     imgLeft.alt = "arrow left";
     arrowContainerLeft.append(imgLeft);
 
     const arrowContainerRight = document.createElement("div");
-    arrowContainerRight.className = "arrowContainer arrowLeft";
+    arrowContainerRight.className = "arrowRight";
     const imgRight = document.createElement("img");
     imgRight.src = "./images/icon-angle-right.svg";
     imgRight.alt = "arrow left";
