@@ -135,6 +135,9 @@ main {
   background-color: var(--White);
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .sliderContent h2 {
   font-size: 3rem;
@@ -177,7 +180,7 @@ main {
   display: none;
 }
 .arrowLeft,
-.arrowRight{
+.arrowRight {
   height: 50px;
   width: 50px;
   padding: 15px;
@@ -207,8 +210,8 @@ main {
 }
 .about p {
   color: var(--Dark-Gray);
-  font-size: 1.2rem;
-  line-height: 1.7rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 @media (min-width: 768px) {
   .sliderContainerImg {
@@ -280,7 +283,7 @@ main {
   .sliderContainerImg .sliderControl {
     display: none;
   }
-  .sliderContainerText{
+  .sliderContainerText {
     height: auto;
   }
   .sliderContainerText .sliderControl {
