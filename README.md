@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://jarher.github.io/roomHomepage/]
 
 ## My process
 
@@ -47,6 +47,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Website - [https://github.com/jarher]
+- Frontend Mentor - [https://www.frontendmentor.io/profile/jarher]
 

@@ -152,6 +152,7 @@ main {
 .redirect {
   text-decoration: none;
   display: flex;
+  align-items: center;
   cursor: pointer;
   margin-top: 30px;
 }
@@ -160,6 +161,9 @@ main {
   font-size: 1.2rem;
   font-family: "League Spartan Semibold", sans-serif;
   color: var(--Very-Dark-Gray);
+}
+.redirect span:hover{
+  color:var(--Dark-Gray)
 }
 .redirect img {
   width: 10%;
@@ -182,7 +186,7 @@ main {
 .arrowLeft,
 .arrowRight {
   height: 50px;
-  width: 50px;
+  width: 60px;
   padding: 15px;
   cursor: pointer;
   display: flex;

@@ -1,62 +1,154 @@
+function createHTMLELements(data) {
+  function createElement(object) {
+    const element = document.createElement(object.elementName);
+
+    if (object.hasOwnProperty("attributes")) {
+      Object.keys(object["attributes"]).forEach((name) => {
+        element.setAttribute(name, object.attributes[name]);
+      });
+    }
+
+    if (object.hasOwnProperty("textContent")) {
+      element.textContent = object.textContent;
+    }
+    return element;
+  }
+  return data.map((element) => {
+    let parent = null;
+    let children = null;
+
+    if (element.hasOwnProperty("parent")) {
+      parent = createElement(element.parent);
+    }
+    if (element.parent.hasOwnProperty("children")) {
+      children = element.parent.children.map((child) => {
+        const newChild = createElement(child);
+        if (child.hasOwnProperty("children")) {
+          const newSubChild = child.children.map((nwSbChild) =>
+            createElement(nwSbChild)
+          );
+          newSubChild.forEach((sbElement) => newChild.append(sbElement));
+        }
+        return newChild;
+      });
+      children.map((chElement) => parent.append(chElement));
+    }
+
+    return parent;
+  })[0];
+}
+
 export class Templates {
   static imgTemplate(imgSrc, imgAlt, index) {
-    const img = document.createElement("img");
-    img.className = "sliderImg";
-    img.src = imgSrc;
-    img.alt = imgAlt;
-    img.dataset.index = index
-    return img;
+    const elements = [
+      {
+        parent: {
+          elementName: "img",
+          attributes: {
+            class: "sliderImg",
+            src: imgSrc,
+            alt: imgAlt,
+            "data-index": index,
+          },
+        },
+      },
+    ];
+    return createHTMLELements(elements);
   }
   static descriptionTemplate({ title, description }, index, type) {
-    const sliderContent = document.createElement("div");
-    type === "active"
-      ? (sliderContent.className = "sliderContent show")
-      : (sliderContent.className = "sliderContent");
+    const className =
+      type === "active" ? "sliderContent show" : "sliderContent";
 
-    sliderContent.dataset.index = index;
-    const heading = document.createElement("h2");
-    heading.textContent = title;
-    const paragraph = document.createElement("p");
-    paragraph.textContent = description;
-    const anchor = document.createElement("a");
-    anchor.className = "redirect";
-    anchor.href = "./index.html";
-    const span = document.createElement("span");
-    span.textContent = "SHOP NOW";
-    const arrowImg = document.createElement("img");
-    arrowImg.src = "./images/icon-arrow.svg";
-    arrowImg.alt = "redirect to shop";
+    const elements = [
+      {
+        parent: {
+          elementName: "div",
+          attributes: {
+            class: className,
+            "data-index": index,
+          },
+          children: [
+            {
+              elementName: "h2",
+              textContent: title,
+            },
+            {
+              elementName: "p",
+              textContent: description,
+            },
+            {
+              elementName: "a",
+              attributes: {
+                class: "redirect",
+                href: "./index.html",
+              },
+              children: [
+                {
+                  elementName: "span",
+                  textContent: "SHOP NOW",
+                },
+                {
+                  elementName: "img",
+                  attributes: {
+                    src: "./images/icon-arrow.svg",
+                    alt: "redirect to shop",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ];
 
-    anchor.append(span);
-    anchor.append(arrowImg);
-
-    sliderContent.append(heading);
-    sliderContent.append(paragraph);
-    sliderContent.append(anchor);
-
-    return sliderContent;
+    return createHTMLELements(elements);
   }
+
   static sliderControl() {
-    const sliderControl = document.createElement("div");
-    sliderControl.className = "sliderControl";
+    const elements = [
+      {
+        parent: {
+          elementName: "div",
+          attributes: {
+            class: "sliderControl",
+          },
+          children: [
+            {
+              elementName: "div",
+              attributes: {
+                class: "arrowLeft",
+              },
+              children: [
+                {
+                  elementName: "img",
+                  attributes: {
+                    src: "./images/icon-angle-left.svg",
+                    alt: "arrow left",
+                  },
+                },
+              ],
+            },
+            {
+              elementName: "div",
+              attributes: {
+                class: "arrowRight",
+              },
 
-    const arrowContainerLeft = document.createElement("div");
-    arrowContainerLeft.className = "arrowLeft";
-    const imgLeft = document.createElement("img");
-    imgLeft.src = "./images/icon-angle-left.svg";
-    imgLeft.alt = "arrow left";
-    arrowContainerLeft.append(imgLeft);
+              children: [
+                {
+                  elementName: "img",
+                  attributes: {
+                    src: "./images/icon-angle-right.svg",
+                    alt: "arrow right",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ];
 
-    const arrowContainerRight = document.createElement("div");
-    arrowContainerRight.className = "arrowRight";
-    const imgRight = document.createElement("img");
-    imgRight.src = "./images/icon-angle-right.svg";
-    imgRight.alt = "arrow left";
-    arrowContainerRight.append(imgRight);
-
-    sliderControl.append(arrowContainerLeft);
-    sliderControl.append(arrowContainerRight);
-
-    return sliderControl;
+    return createHTMLELements(elements);
   }
 }

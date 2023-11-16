@@ -27,7 +27,7 @@ export class listenEvent {
         });
       }
       sliderContainerImg.append(Templates.sliderControl());
-      Array.from(DOMReader.getMany(".sliderImg")).forEach((element, index) => {
+      DOMReader.getMany(".sliderImg").forEach((element, index) => {
         index === 0 ? (element.style.opacity = 1) : (element.style.opacity = 0);
       });
     }
@@ -52,21 +52,15 @@ export class listenEvent {
       if (e.target.parentElement.className === "arrowLeft") {
         index = index <= 0 ? 2 : --index;
         const slider = new Slider(index);
-        slider.sliderImg(
-          Array.from(DOMReader.getMany(".sliderImg")),
-          "moveLeft"
-        );
-        slider.sliderText(Array.from(DOMReader.getMany(".sliderContent")));
+        slider.sliderImg(DOMReader.getMany(".sliderImg"), "moveLeft");
+        slider.sliderText(DOMReader.getMany(".sliderContent"));
       }
 
       if (e.target.parentElement.className === "arrowRight") {
         index = index >= 2 ? 0 : ++index;
         const slider = new Slider(index);
-        slider.sliderImg(
-          Array.from(DOMReader.getMany(".sliderImg")),
-          "moveRight"
-        );
-        slider.sliderText(Array.from(DOMReader.getMany(".sliderContent")));
+        slider.sliderImg(DOMReader.getMany(".sliderImg"), "moveRight");
+        slider.sliderText(DOMReader.getMany(".sliderContent"));
       }
     });
 
@@ -85,7 +79,7 @@ export class listenEvent {
       });
     });
 
-    window.addEventListener("resize", (e) => {
+    window.addEventListener("resize", () => {
       sliderContainerImg.cleanContent();
       renderImg();
     });
