@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://github.com/jarher/roomHomepage]
 - Live Site URL: [https://jarher.github.io/roomHomepage/]
 
 ## My process
